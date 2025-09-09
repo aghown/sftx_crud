@@ -1,6 +1,6 @@
-from database import empreendedores
 
-def atualizar_empreendedor():
+
+def atualizar_empreendedor(empreendedores):
     print("\n--- Atualizar Empreendedor ---")
     try:
         id_ = int(input("Informe o ID do empreendedor a ser atualizado: "))

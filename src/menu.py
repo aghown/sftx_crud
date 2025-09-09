@@ -1,8 +1,10 @@
 import re
-import temp.saveData as Save
-import temp.updateData as Update
-import temp.removeData as Delete
-import temp.searchData as Search
+import functions.create as Create
+import functions.update as Update
+import functions.removeData as Delete
+import functions.listData as List
+from functions.database import empreendedores
+from functions.saveData import AddData as Save
 
 
 
@@ -11,17 +13,28 @@ def OpenMenu():
           "1 - Adicionar empreendedor\n" \
           "2 - Atualizar empreendedor\n" \
           "3 - Remover empreendedor\n" \
-          "4 - Pesquisar empreendedor")
+          "4 - Pesquisar lista de empreendedores")
     choice = input()
     match choice:
         case "1":
-            Save.AddData(userList)
+            lista = Save()
+            nome = lista[0]
+            cidade = lista[1]
+            contato = lista[2]
+            cnpj = lista[3]
+            setor = lista[4]
+            Create.criar_empreendedor(empreendedores, nome, cidade, contato, cnpj, setor)
         case "2":
-            Update.UpdateData(userList)
+            Update.atualizar_empreendedor(empreendedores)
         case "3":
-            Delete.RemoveData(userList)
+            Delete.RemoveData(empreendedores)
         case "4":
-            Search.SearchData(userList)
+            List.ListData(empreendedores)
         case _:
             print("Escolha uma opção válida")
-userList = dict()
+
+OpenMenu()
+print(empreendedores)
+OpenMenu()
+print(empreendedores)
+OpenMenu()

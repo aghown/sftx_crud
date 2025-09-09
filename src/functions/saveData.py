@@ -1,7 +1,7 @@
 
 import re
 
-def AddData(banco:dict):
+def AddData():
     natCheck = True
     while natCheck == True:
         nome = input("Digite o nome do empreendedor: ")
@@ -28,16 +28,8 @@ def AddData(banco:dict):
             print("Digite um número válido")
     natCheck = True
     city = input("Digite a cidade: ")
-    email = input("Digite o email: ")
+    #email = input("Digite o email: ")
     sector = input("Digite o setor: ")
-    userData = ({"Nome": nome, "CNPJ":cnpj, "Contato": contact, "Cidade": city, "Email": email, "Setor": sector})
-    id = len(banco)
-    idcheck = False
-    while idcheck == False:
-        if banco.__contains__(id) or id == 0:
-            id += 1
-        else:
-            idcheck = True
-
-    banco.update({id: userData})
+    userData = [nome, city, contact, cnpj, sector]
+    
     return userData
