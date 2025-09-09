@@ -40,9 +40,3 @@ def OpenMenu():
             pass
         case _:
             print("Escolha uma opção válida")
-
-OpenMenu()
-print(empreendedores)
-OpenMenu()
-print(empreendedores)
-OpenMenu()
