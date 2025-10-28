@@ -1,15 +1,16 @@
-def procurar_empreendedores(lista, nome_procurado):
-
+def buscar_empreendedor(empreendedores: dict):
+    print("\n--- Buscar Empreendedor ---")
+    
     try:
-        for empreendedor in lista:
-            if lista[empreendedor].get("nome", "").lower() == nome_procurado.lower():
-                print("✅ O empreendedor foi encontrado:")
-                print("-------------------------")
+        id_ = int(input("Informe o ID para buscar: "))
+    except ValueError:
+        print("ID inválido.")
+        return
 
-                for chave, valor in lista[empreendedor].items():
-                    print(f"{chave.capitalize()}: {valor}")
-                return      
-        print("❌ Empreendedor não encontrado.")
+    if id_ not in empreendedores:
+        print("Empreendedor não encontrado.")
+        return
 
-    except Exception as e:
-        print(f"Ocorreu um erro ao procurar o empreendedor: {e}")
+    empreendedor = empreendedores[id_]
+    print(f"\nID: {empreendedor.id} | Nome: {empreendedor.nome} | Email: {empreendedor.email} | Telefone: {empreendedor.telefone}")
+
