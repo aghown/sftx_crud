@@ -1,23 +1,26 @@
-def RemoveData(banco:dict):
-    teste = True
-    while teste == True:
-        id = int(input("Qual o ID do usuário que você pretende remover (0 para cancelar)?\n"))
-        try:
-            if id == "0":
-                return None
-            else:
-                print(banco[id])
-                teste = False
-        except:
-            print("Insira um valor válido")
-    while teste == False:
-        check = input("Você tem certeza que deseja remover o usuário selecionado? Digite CONFIRMAR para removê-lo ou 0 para cancelar.\n")
-        match check:
-            case "CONFIRMAR":
-                banco.pop(id)
-                teste = True
-            case "0":
-                teste = True
-            case __:
-                print("Inserção inválida")
-                continue
+def remover_empreendedor(empreendedores: dict):
+    print("\n--- Remover Empreendedor ---")
+
+    try:
+        id_ = int(input("Informe o ID do empreendedor a ser removido (0 para cancelar): "))
+    except ValueError:
+        print("ID inválido.")
+        return
+
+    if id_ == 0:
+        print("Remoção cancelada.")
+        return
+    
+    if id_ not in empreendedores:
+        print("ID não encontrado.")
+        return
+
+    empreendedor = empreendedores[id_]
+    print(f"\nSelecionado: {empreendedor.nome} | {empreendedor.email} | {empreendedor.telefone}")
+
+    confirmacao = input("Digite CONFIRMAR para remover ou Enter para cancelar: ")
+    if confirmacao.upper() == "CONFIRMAR":
+        empreendedores.pop(id_)
+        print("\nEmpreendedor removido com sucesso.")
+    else:
+        print("\nRemoção cancelada.")
