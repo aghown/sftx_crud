@@ -1,3 +1,17 @@
+class Empreendedor:
+    def __init__(self, id_, nome, email, telefone):
+        self.id = id_
+        self.nome = nome
+        self.email = email
+        self.telefone = telefone
+
+    def atualizar(self, nome=None, email=None, telefone=None):
+        if nome:
+            self.nome = nome
+        if email:
+            self.email = email
+        if telefone:
+            self.telefone = telefone
 
 
 def atualizar_empreendedor(empreendedores):
@@ -8,17 +22,20 @@ def atualizar_empreendedor(empreendedores):
             print("ID não encontrado.")
             return
 
-        print("\nEmpreendedor encontrado! Deixe em branco para manter o valor atual.")
         empreendedor = empreendedores[id_]
+        print("\nEmpreendedor encontrado! Deixe em branco para manter o valor atual.")
 
-        for campo, valor_atual in empreendedor.items():
-            novo_valor = input(f"{campo.capitalize()} atual: {valor_atual} → Novo: ")
-            if novo_valor.strip():
-                empreendedor[campo] = novo_valor
+        novo_nome = input(f"Nome atual: {empreendedor.nome} → Novo: ")
+        novo_email = input(f"Email atual: {empreendedor.email} → Novo: ")
+        novo_telefone = input(f"Telefone atual: {empreendedor.telefone} → Novo: ")
+
+        empreendedor.atualizar(
+            nome=novo_nome if novo_nome.strip() else None,
+            email=novo_email if novo_email.strip() else None,
+            telefone=novo_telefone if novo_telefone.strip() else None
+        )
 
         print("\nEmpreendedor atualizado com sucesso!")
 
     except ValueError:
         print("ID inválido.")
-
-
