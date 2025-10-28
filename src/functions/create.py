@@ -1,22 +1,24 @@
-# src/create.py
+import sys
+sys.path.append("src")
 
-#Fiz alteração para receber o banco e o ID ter auto incremento
+from model.empreendedor import Empreendedor
 
-def criar_empreendedor(empreendedores:dict, nome, cidade, contato, cnpj, setor):
-    id = len(empreendedores) + 1
-    idcheck = False
-    while idcheck == False:
-        if empreendedores.__contains__(id):
-            id+=1
-        else:
-            idcheck = True
-    empreendedor = {
-        "nome": nome,
-        "cidade": cidade,
-        "contato": contato,
-        "cnpj": cnpj,
-        "setor": setor
-    }
-    empreendedores.update({id: empreendedor})
+def criar_empreendedor(id: str, nome: str, cidade: str, email: str, telefone: str, 
+                       cnpj: str, ramo: str, empreendedores: dict, 
+                       empreendedorobj: list) -> Empreendedor:
+    """Cria e adiciona um Empreendedor à lista em memória."""
+    
+    empreendedor = Empreendedor(
+        id=id,
+        nome=nome,
+        cidade=cidade,
+        email=email,
+        telefone=telefone,
+        cnpj=cnpj,
+        ramo=ramo
+    )
+    empreendedores[id] = empreendedor
+    empreendedorobj.append(empreendedor)
+    
     print("\n✅ Empreendedor cadastrado com sucesso!")
     return empreendedor

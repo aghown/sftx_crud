@@ -2,6 +2,7 @@
 import re
 
 def AddData():
+    id = input("Digite o id: ")
     natCheck = True
     while natCheck == True:
         nome = input("Digite o nome do empreendedor: ")
@@ -28,8 +29,8 @@ def AddData():
             print("Digite um número válido")
     natCheck = True
     city = input("Digite a cidade: ")
-    #email = input("Digite o email: ")
+    email = input("Digite o email: ")
     sector = input("Digite o setor: ")
-    userData = [nome, city, contact, cnpj, sector]
+    userData = [id, nome, city, email, contact, cnpj, sector]
     
     return userData

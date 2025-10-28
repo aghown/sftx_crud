@@ -1,4 +1,4 @@
-from create import criar_empreendedor, empreendedores
+from functions.create import criar_empreendedor, empreendedores
 
 # Criando dois empreendedores de teste
 criar_empreendedor(1, "Ana Caroline", "Recife", "ana@email.com", "12.345.678/0001-99", "Tecnologia")

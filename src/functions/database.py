@@ -1,4 +1,3 @@
-from model.empreendedor import Empreendedor
+empreendedores = {}
 
-
-empreendedores = {Empreendedor}
+empreendedorobj = []
